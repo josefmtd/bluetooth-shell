@@ -1,0 +1,12 @@
+[Unit]
+Description=Shell via Bluetooth Serial
+After=bluetooth.service
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/rfcomm watch /dev/rfcomm0 0 /sbin/agetty rfcomm0 115200 linux
+Restart=on-failure
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
