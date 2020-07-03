@@ -4,7 +4,7 @@ After=bluetooth.service
 
 [Service]
 Type=simple
-ExecStart=/usr/bin/rfcomm watch /dev/rfcomm0 0 /sbin/agetty rfcomm0 115200 linux
+ExecStart=/usr/bin/rfcomm watch /dev/rfcomm0 0 setsid /sbin/agetty -L rfcomm0 115200 linux
 Restart=on-failure
 RestartSec=10
 
